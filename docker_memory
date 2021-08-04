@@ -1,0 +1,119 @@
+
+
+
+docker run  --mount type=bind,source=/home/ubuntu/message,destination=/root,readonly busybox cat /root/message.txt
+
+docker run -it --rm busybox
+
+
+ docker pull mysql/mysql-server:latest
+ docker images
+ docker run --name my-sql -d mysql/mysql-server
+ docker ps
+ apt-get install mysql-client
+ sudo apt-get install mysql-client
+
+ X3iC=HTve3=Y8Xk=185,7,bZlH3Z^z,/
+ 
+ docker exec -it my-sql /bin/bash
+ 
+ mysql -u root -p
+Enter password:X3iC=HTve3=Y8Xk=185,7,bZlH3Z^z,/
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'newpassword';
+
+
+
+docker run \
+--detach \
+--name=[container_name] \
+--env="MYSQL_ROOT_PASSWORD=my_password" \
+--publish 6603:3306 \
+--volume=/root/docker/[container_name]/conf.d:/etc/mysql/conf.d \
+--volume=/storage/docker/mysql-data:/var/lib/mysql \
+mysql
+
+
+docker run -d --name mysql -e="MYSQL_ROOT_PASSWORD=password" -p 6603:3306 -v sql-volume:/var/lib/mysql mysql
+
+
+docker run -d --name mysql -e="MYSQL_ROOT_PASSWORD=password" -p 6603:3306 -v ~/message:/root
+
+
+docker run -d --name mysql -e="MYSQL_ROOT_PASSWORD=password" -p 6603:3306 -v ~/message:/root mysql curl localhost:80
+
+
+. To add this option, edit the grub configuration file. Open the file in a text editor of your choice (we are using nano):
+
+sudo nano /etc/default/grub
+
+3. Then, add the following line:
+
+GRUB_CMDLINE_LINUX="cdgroup_enable=memory swapaccount=1"
+
+. Then, update the grub configuration with the command:
+
+sudo update-grub
+
+
+
+
+Set Maximum Memory Access:
+=========================
+
+To limit the maximum amount of memory usage for a container, add the --memory option to the docker run command. Alternatively, you can use the shortcut -m.
+
+Within the command, specify how much memory you want to dedicate to that specific container.
+
+The command should follow the syntax:
+
+sudo docker run -it --memory="[memory_limit]" [docker_image]
+The value of memory_limit should be a positive integer followed by the suffix b, k, m, or g (short for bytes, kilobytes, megabytes, or gigabytes). For example, to limit the container with 1 GB of RAM, add --memory="1g".
+
+For example, to run an instance of an Ubuntu container and set the memory limit to 1 GB, the command is:
+
+sudo docker run -it --memory="1g" ubuntu
+
+Set Swap to Disk Memory Limit
+=============================
+The syntax for running a container with limited memory and additional swap memory is:
+
+sudo docker run -it --memory="[memory_limit]" --memory-swap="[memory_limit]" [docker_image]
+For instance, to run a container from the Ubuntu image, assigning 1 GB of RAM for the container to use and reserving 1 GB of RAM for swap memory, type:
+
+sudo docker run -it --memory="1g" --memory-swap="2g" ubuntu
+
+Set Soft Limit to Container Memory
+====================================
+Limiting the memory usage of a container with --memory is essentially setting a hard limit that cannot be surpassed. 
+Alternatively, you can set a soft limit (--memory-reservation) which warns when the container reaches the end of 
+its assigned memory but doesn’t stop any of its services.
+
+
+sudo docker run -it --memory="1g" --memory-reservation="750m" ubuntu
+ 
+
+Reference:- https://phoenixnap.com/kb/docker-memory-and-cpu-limit
+
+
+mvn archetype:generate
+
+project-1.0-SNAPSHOT.jar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
